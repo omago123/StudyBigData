@@ -9,12 +9,20 @@
   - 네이버 API
   - 공공데이터 API
   - 패키지 사용
-  
-
 
 ## Day 2
+- 웹 크롤링
+  - 공공데이터 API
+    - csv 처리
+    - db 처리
 
 ## Day 3
+- 웹 크롤링
+  - Beautifulsoup
+  - Selenium
+
+- 빅데이터분석
+  - 통계분석
 
 ## Day 4
 

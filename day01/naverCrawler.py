@@ -26,12 +26,13 @@ def getRequestUrl(url):
     except Exception as e:
         print(e)
         print(f"[{datetime.datetime.now()}] Error for URL : {url}")
+        return None
 
 
 def getNaverSearch(node, srcText, start, display):
     base = 'https://openapi.naver.com/v1/search'
     node = f'/{node}.json'
-    text = urllib.parse.quote(srcText) # url주세어 맞춰서 파싱
+    text = urllib.parse.quote(srcText) # url주제어 맞춰서 파싱
     parmeters=f'?query={text}&start={start}&diplay={display}' 
 
     url = base + node + parmeters
@@ -68,9 +69,9 @@ def main():
         for post in jsonRes['items']:
             cnt +=1
             getPostData(post, jsonResult,cnt)
-        
+        # 만약 50개를 다돌았다고 치면 51개부터 시작해야하기때문에 기존 display값을 더해준다.
         start = jsonRes['start'] + jsonRes['display']
-        jsonRes = getNaverSearch(node, srcText,start, 100)
+        jsonRes = getNaverSearch(node, srcText,start, 50)
 
     print(f'전체 검색 : {total} 건')
 
